@@ -1,24 +1,12 @@
 package com.creational.factory;
 
+/**
+ * 
+ * @author ashif14
+ *
+ */
 public class VehicleFactory {
-	
-	public enum VehicleEnum {
-		TWO_WHEELER(TwoWheelerVehicle.class),
-		THREE_WHEELER(ThreeWheelerVehicle.class),
-		FOUR_WHEELER(FourWheelerVehicle.class);
 		
-		
-		private Class<? extends Vehicle> clazz;
-		
-		VehicleEnum(Class<? extends Vehicle> clazz) {
-			this.clazz = clazz;
-		}
-		public Class<? extends Vehicle> getClazz() {
-			return this.clazz;
-		}
-		
-	};
-	
 	private static VehicleFactory vehicleFactory = null;
 	
 	private VehicleFactory() {};
