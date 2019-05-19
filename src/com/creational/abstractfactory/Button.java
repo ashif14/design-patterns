@@ -1,5 +1,5 @@
 package com.creational.abstractfactory;
 
-public class FourWheelerFactory {
-
+public interface Button {
+	void paint();
 }

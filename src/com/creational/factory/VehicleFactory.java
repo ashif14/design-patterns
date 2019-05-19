@@ -8,10 +8,12 @@ package com.creational.factory;
  */
 public class VehicleFactory {
 	
+	private static final VehicleEnum DEFAULT_VEHICLE = VehicleEnum.TWO_WHEELER;
+	
 	private VehicleFactory() {};
 	
 	public static Vehicle getInstance() throws InstantiationException, IllegalAccessException {
-		return createVehicle(null);
+		return createVehicle(DEFAULT_VEHICLE);
 	}
 	public static Vehicle getInstance(VehicleEnum vehicle) throws InstantiationException, IllegalAccessException {
 		return createVehicle(vehicle);
