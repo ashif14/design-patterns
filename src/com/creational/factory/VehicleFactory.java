@@ -1,29 +1,24 @@
 package com.creational.factory;
 
+
 /**
  * 
  * @author ashif14
  *
  */
 public class VehicleFactory {
-		
-	private static VehicleFactory vehicleFactory = null;
 	
 	private VehicleFactory() {};
 	
-	public static VehicleFactory getInstance() {
-		if(vehicleFactory == null)
-			vehicleFactory = new VehicleFactory();
-		return vehicleFactory;
+	public static Vehicle getInstance() throws InstantiationException, IllegalAccessException {
+		return createVehicle(null);
 	}
-	public Vehicle getVehicle(VehicleEnum vehicle) {
-			try {
-				return vehicle.getClazz().newInstance();
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			}
-			return null;
+	public static Vehicle getInstance(VehicleEnum vehicle) throws InstantiationException, IllegalAccessException {
+		return createVehicle(vehicle);
+	}
+	private static Vehicle createVehicle(VehicleEnum vehicle) throws InstantiationException, IllegalAccessException {
+		if(vehicle == null)
+			return new TwoWheelerVehicle();
+		return vehicle.getClazz().newInstance();
 	}
 }

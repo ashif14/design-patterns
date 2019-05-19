@@ -6,11 +6,11 @@ package com.creational.factory;
  *
  */
 public class ClientApplication {
-	public static void main(String[] args) {
-		VehicleFactory vehicleFactory = VehicleFactory.getInstance();
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
 		
-		vehicleFactory.getVehicle(VehicleEnum.TWO_WHEELER).drive();
-		vehicleFactory.getVehicle(VehicleEnum.THREE_WHEELER).drive();
-		vehicleFactory.getVehicle(VehicleEnum.FOUR_WHEELER).drive();
+		VehicleFactory.getInstance(VehicleEnum.TWO_WHEELER).drive();
+		VehicleFactory.getInstance(VehicleEnum.THREE_WHEELER).drive();
+		VehicleFactory.getInstance(VehicleEnum.FOUR_WHEELER).drive();
+		VehicleFactory.getInstance().drive();
 	}
 }
